@@ -5,34 +5,37 @@
 class Phrase {
     constructor(phrase){
         this.phrase = phrase.toLowerCase();
-        this.phraseSplit = this.phrase.split('');
+        //this.phraseSplit = this.phrase.split('');
     }
 
     addPhraseToDisplay() {
-       //phraseSplit = this.phrase.split('');
-       phraseSplit.forEach(character => {
+        const splitPhrase = this.phrase.split('');
+        const phraseContainer = document.getElementById('phrase');
+       splitPhrase.forEach(character => {
+        let spaceCharacter = '<li class="space"> </li>'
+        let letterCharacter = `<li class="hide letter ${character}">${character}</li>`
            if (character === ' '){
-               let spaceCharacter = '<li class="space"> </li>'
-               document.getElementById('phrase').querySelector('ul').insertAdjacentHTML('beforeend', spaceCharacter);
-            } else {
-                let letterCharacter = `<li class="hide letter ${character}">${character},</li>`
-                document.getElementById('phrase').querySelector('ul').insertAdjacentHTML('beforeend', letterCharacter);
+               phraseContainer.querySelector('ul').insertAdjacentHTML('beforeend', spaceCharacter);
+            } else {     
+                phraseContainer.querySelector('ul').insertAdjacentHTML('beforeend', letterCharacter);
             }
        })
     }
 
     checkLetter(guessedLetter) {
-            if (this.phrase.split('').includes(guessedLetter)){
+        const splitPhrase = this.phrase.split('');
+            if (splitPhrase.includes(guessedLetter)){
                 return true;
             }
     }
 
     showMatchedLetter(matchedLetter) {
+        const letters = document.getElementsByClassName(matchedLetter);
         for (let i = 0; i < letters.length; i++) {
-            document.getElementsByClassName(matchedLetter)[i].classList.replace('hide', 'show');
+            letters[i].classList.replace('hide', 'show');
         }
     }
 
 }
-const test = new Phrase('HI');
-console.log(test);
+//const test = new Phrase('HI');
+//console.log(test);
