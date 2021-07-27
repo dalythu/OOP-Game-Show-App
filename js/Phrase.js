@@ -6,6 +6,8 @@ class Phrase {
 		this.phrase = phrase.toLowerCase();
 		//this.phraseSplit = this.phrase.split('');
 	}
+
+    //method to display selected phrase which is then spit into divividual characters before being added to the DOM
 	addPhraseToDisplay() {
 		const splitPhrase = this.phrase.split('');
 		const phraseContainer = document.getElementById('phrase');
@@ -19,12 +21,16 @@ class Phrase {
 			}
 		})
 	}
+
+    //method that checks the player's glessed letter and checks it against the split phrase 
 	checkLetter(guessedLetter) {
 		const splitPhrase = this.phrase.split('');
 		if (splitPhrase.includes(guessedLetter)) {
 			return true;
 		}
 	}
+    
+    //method that displays the letter if correct
 	showMatchedLetter(matchedLetter) {
 		const letters = document.getElementsByClassName(matchedLetter);
 		for (let i = 0; i < letters.length; i++) {
