@@ -1,5 +1,5 @@
 /* Main styles */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300,700);
 
 /* Variables */
 
@@ -20,7 +20,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Abril Fatface', serif;
 }
 
 body {
@@ -111,7 +111,7 @@ button {
 
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #78CF82;
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -131,14 +131,14 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #78CF82;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #f5785f;
   color: #FFFFFF;
 }
 
