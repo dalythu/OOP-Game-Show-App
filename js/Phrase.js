@@ -38,5 +38,3 @@ class Phrase {
 		}
 	}
 }
-//const test = new Phrase('HI');
-//console.log(test);

@@ -2,13 +2,18 @@
  * Project 4 - OOP Game App
  * Game.js */
 class Game {
-	constructor(missed, phrases, activePhrase) {
-		this.missed = missed;
-		this.phrases = phrases;
-		this.activePhrase = activePhrase;
+	constructor() {
+		this.missed = 0;
+		this.phrases = [new Phrase('Thurston'),
+			new Phrase("Mailchimp"),
+			new Phrase("Treehouse Learning"),
+			new Phrase("A real one"),
+			new Phrase("Coding is fun")
+		];
+		this.activePhrase = null;
 	}
-    
-    //method presents the game and the randomly selected phrase from phrase array
+
+	//method presents the game and the randomly selected phrase from phrase array
 	startGame() {
 		const gameOverlay = document.getElementById('overlay');
 		gameOverlay.style.display = 'none';
@@ -16,13 +21,13 @@ class Game {
 		this.activePhrase.addPhraseToDisplay();
 	}
 
-    //method uses random number to choose a phrase from array 
+	//method uses random number to choose a phrase from array 
 	getRandomPhrase() {
 		const randomPhraseIndex = Math.floor(Math.random() * this.phrases.length);
 		return this.phrases[randomPhraseIndex];
 	}
 
-    //method removes a life if player guess is incorrect
+	//method removes a life if player guess is incorrect
 	removeLife() {
 		this.missed += 1;
 		const scoreboard = document.querySelector('#scoreboard ol').children;
@@ -32,12 +37,12 @@ class Game {
 		}
 	}
 
-    /*
-    method handles primary game logic. 
-    This method also handles player interaction with the game via mouse or keyboard. 
-    It also checks if the player has won.
-    */
-   handleInteraction(button) {
+	/*
+	method handles primary game logic. 
+	This method also handles player interaction with the game via mouse or keyboard. 
+	It also checks if the player has won.
+	*/
+	handleInteraction(button) {
 		const letter = button.textContent;
 		//const winner = this.checkForWin();
 		button.disabled = true;
@@ -54,7 +59,7 @@ class Game {
 		}
 	}
 
-    //method checks if all the letters in a phrase have been entered
+	//method checks if all the letters in a phrase have been entered
 	checkForWin() {
 		const keyList = document.querySelector('#phrase ul').children;
 		let showCharacterCount = 0;
@@ -69,7 +74,7 @@ class Game {
 		return (showCharacterCount + spaceCharacterCount) === keyList.length
 	}
 
-    //method to reset the game and start again
+	//method to reset the game and start again
 	resetGame() {
 		const keyList = document.querySelector('#phrase ul');
 		const keys = document.getElementsByClassName('key');
@@ -86,8 +91,8 @@ class Game {
 			scoreboard[i].querySelector('img').src = 'images/liveHeart.png';
 		}
 	}
-
-    //method manages the display of you win/lose overlay
+	
+	//method manages the display of you win/lose overlay
 	gameOver(gameStatus) {
 		const gameOverlay = document.getElementById('overlay');
 		const gameOverMessage = document.getElementById('game-over-message');

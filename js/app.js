@@ -2,14 +2,6 @@
  * Project 4 - OOP Game App
  * app.js */
 
-const phrases = [new Phrase('Thurston'),
-	new Phrase("Mailchimp"),
-	new Phrase("Treehouse Learning"),
-	new Phrase("A real one"),
-	new Phrase("Coding is fun")
-];
-const missed = 0;
-const activePhrase = null;
 const startGameListener = document.getElementById('btn__reset');
 const keys = document.getElementsByClassName('key');
 
@@ -27,9 +19,9 @@ let eventHandler = function(e) {
 	}
 }
 
-//function that starts game when 'start game' button is pressed 
+//function that starts game when 'start game button is pressed 
 startGameListener.addEventListener('click', () => {
-	game = new Game(missed, phrases, activePhrase);
+	game = new Game();
 	game.startGame();
 	document.addEventListener('keyup', eventHandler);
 })
